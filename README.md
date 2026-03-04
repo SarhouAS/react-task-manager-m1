@@ -1,16 +1,103 @@
-# React + Vite
+# 💰 Budget Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application de gestion de budget personnel développée avec **React + Vite** dans le cadre d'un TP de 8h.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Lancer le projet
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+L'application tourne sur [http://localhost:5173](http://localhost:5173)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Fonctionnalités
+
+- ➕ Ajouter une transaction (revenu ou dépense)
+- 🗑️ Supprimer une transaction
+- 💹 Voir le solde total, les revenus et les dépenses
+- 🔍 Filtrer par type (Tous / Revenus / Dépenses)
+- 💾 Données sauvegardées automatiquement dans le `localStorage`
+
+---
+
+## 🗂️ Structure du projet
+
+```
+src/
+├── components/
+│   ├── Balance.jsx          → Affiche le solde, revenus et dépenses
+│   ├── TransactionForm.jsx  → Formulaire d'ajout avec validation
+│   ├── TransactionList.jsx  → Liste de toutes les transactions
+│   ├── TransactionItem.jsx  → Une transaction individuelle
+│   └── Filter.jsx           → Filtres par type
+├── App.jsx                  → Composant racine + state global
+├── main.jsx                 → Point d'entrée React
+└── index.css                → Styles globaux
+```
+
+---
+
+## 📦 Modèle de données
+
+Chaque transaction est un objet de la forme :
+
+```js
+{
+  id: Date.now(),
+  title: "Salaire",
+  amount: 1500,
+  type: "income",   // "income" | "expense"
+  date: "2026-03-04"
+}
+```
+
+---
+
+## 🌿 Branches Git
+
+| Branche | Description |
+|---|---|
+| `feature/setup` | Initialisation du projet et structure des dossiers |
+| `feature/data-model` | State global dans App.jsx |
+| `feature/form` | Formulaire d'ajout avec validation |
+| `feature/list` | Liste et suppression des transactions |
+| `feature/balance` | Calcul du solde avec `reduce()` |
+| `feature/filter` | Filtrage par type |
+| `feature/storage` | Persistance avec `localStorage` |
+| `feature/ui` | Styles et mise en page |
+
+---
+
+## 🛠️ Technologies
+
+- [React](https://react.dev/) — bibliothèque UI
+- [Vite](https://vitejs.dev/) — bundler et serveur de développement
+- `useState` / `useEffect` — hooks React uniquement
+- `localStorage` — persistance des données
+
+---
+
+## 👥 Répartition binôme
+
+| Étudiant A | Étudiant B |
+|---|---|
+| Formulaire | Liste |
+| LocalStorage | Balance |
+| Validation | Filtre |
+
+---
+
+## 📋 Conventional Commits utilisés
+
+| Préfixe | Usage |
+|---|---|
+| `feat` | Nouvelle fonctionnalité |
+| `fix` | Correction de bug |
+| `refactor` | Amélioration du code sans changement visible |
+| `chore` | Configuration, setup |
+| `style` | CSS et mise en page |
