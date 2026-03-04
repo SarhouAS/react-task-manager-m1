@@ -5,8 +5,8 @@ import TaskList from "./components/TaskList"
 export default function App() {
   const [tasks, setTasks] = useState([])
 
-  const addTask = (task) => setTasks([task, ...tasks])
-  const deleteTask = (id) => setTasks(tasks.filter((t) => t.id !== id))
+  const addTask = (task) => setTasks((prev) => [task, ...prev])
+  const deleteTask = (id) => setTasks((prev) => prev.filter((t) => t.id !== id))
 
   return (
     <div>
